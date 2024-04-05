@@ -108,6 +108,10 @@ La documentación se realizo con swagger y openaApi v3. Se utilizo express-opena
 
 [Documentation](http://localhost:3000/api-docs)
 
+## Variable global
+
+La aplicación usa una unica variable global denominada DB, en la cual se guarda la instancia de la base de datos, no se aconseja el uso para ambientes productivos, y se hace en este caso para evitar el import en todo los archivos que se requiere, en vez de esto se debe propender el uso de patrones como inyección de dependencias.
+
 ## Authors
 
 - [@juandevelop85](https://www.github.com/juandevelop85)
