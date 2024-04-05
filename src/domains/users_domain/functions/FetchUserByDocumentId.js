@@ -1,5 +1,3 @@
-// const DB = require('../../../db/models/postgres');
-
 async function FetchUserByDocumentId(params) {
   const { id_identification_type, id_number } = params;
   const user = await DB.user

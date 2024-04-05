@@ -1,5 +1,3 @@
-// const DB = require('../../../db/models/postgres');
-
 async function FetchPointsOfSalesByCompany(params) {
   const { nit } = params;
   const company = await DB.company.findOne({ where: { nit } }).catch((e) => {

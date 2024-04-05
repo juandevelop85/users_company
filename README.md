@@ -73,7 +73,7 @@ Crear imagen docker
 
 File                                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 ------------------------------------|---------|----------|---------|---------|-------------------
-All files                           |   92.94 |     64.7 |   81.25 |   93.54 |
+All files                           |   91.95 |    69.56 |   82.05 |   92.42 |
  controllers                        |     100 |      100 |     100 |     100 |
   companies.controller.js           |     100 |      100 |     100 |     100 |
   users.controller.js               |     100 |      100 |     100 |     100 |
@@ -88,15 +88,18 @@ All files                           |   92.94 |     64.7 |   81.25 |   93.54 |
   user_company_role.js              |     100 |      100 |     100 |     100 |
   users.js                          |     100 |      100 |     100 |     100 |
  domains/companies_domain/functions |   88.88 |      100 |      50 |   88.88 |
-  FetchPointsOfSalesByCompany.js    |   88.88 |      100 |      50 |   88.88 | 6
- domains/users_domain/functions     |   88.88 |      100 |      50 |   88.88 |
-  FetchUserByDocumentId.js          |   88.88 |      100 |      50 |   88.88 | 8
+  FetchPointsOfSalesByCompany.js    |   88.88 |      100 |      50 |   88.88 | 4
+ domains/users_domain/functions     |   82.85 |     87.5 |      50 |   82.85 |
+  CreateUser.js                     |   80.76 |    83.33 |      50 |   80.76 | 38,61-66
+  FetchUserByDocumentId.js          |   88.88 |      100 |      50 |   88.88 | 6
  routes/companies                   |     100 |      100 |     100 |     100 |
   index.js                          |     100 |      100 |     100 |     100 |
  routes/users                       |     100 |      100 |     100 |     100 |
   index.js                          |     100 |      100 |     100 |     100 |
  server                             |   86.79 |       25 |      40 |   88.46 |
   app.js                            |   86.79 |       25 |      40 |   88.46 | 73-78,85-90,95
+ shared/functions                   |     100 |      100 |     100 |     100 |
+  GetModelAttributes.js             |     100 |      100 |     100 |     100 |
 
 
 ## Documentacion

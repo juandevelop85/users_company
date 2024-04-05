@@ -42,7 +42,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    
+    /createUser:
+        post:
+            description: Crea un usuario en la BD asignando un rol en una compañia
+            operationId: saveTransactionId
+            requestBody:
+                description: Datos de items de compra
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateUser'
+            responses:
+                '200':
+                    description: register response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Response'
+                default:
+                    description: unexpected error
+                    content: 
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
 components:
     securitySchemes:
             bearerAuth:
@@ -50,6 +73,33 @@ components:
                 scheme: bearer
                 bearerFormat: JWT
     schemas:
+        CreateUser:
+            required:
+                - firstname
+                - lastname
+                - id_identification_type
+                - id_number
+                - email
+                - phone
+                - role
+                - company_nit
+            properties:
+                firstname:
+                    type: string
+                lastname:
+                    type: string
+                id_identification_type:
+                    type: number
+                id_number:
+                    type: string
+                email:
+                    type: string
+                phone:
+                    type: string
+                role:
+                    type: string
+                company_nit:
+                    type: string
         Response:
             properties:
                 message:

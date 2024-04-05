@@ -39,6 +39,7 @@
     "yamljs": "0.3.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.7.0",
     "eslint": "8.18.0",
