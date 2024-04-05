@@ -1,0 +1,67 @@
+openapi: '3.0.0'
+info:
+    version: 1.0.0
+    title: UsersCompany Users services
+    description: Api para el microservicios de usuarios
+    termsOfService: http://swagger.io/terms/
+    license:
+        name: Apache 2.0
+        url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+    - url: http://localhost:3000/users/api/v1
+    - url: http://test.com/users/api/v1
+    - url: http://production.com/users/api/v1
+paths:
+    /fetchUserByDocumentId/{id_identification_type}/{id_number}:
+        get:
+            description: Consulta un usuario y los roles por empresa.
+            operationId: fetchUserByDocumentId
+            parameters:
+                - name: id_identification_type
+                  in: path
+                  description: identification type id
+                  required: true
+                  schema:
+                      type: number
+                - name: id_number
+                  in: path
+                  description: number id
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: login response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Response'
+                default:
+                    description: unexpected error
+                    content: 
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    
+components:
+    securitySchemes:
+            bearerAuth:
+                type: http
+                scheme: bearer
+                bearerFormat: JWT
+    schemas:
+        Response:
+            properties:
+                message:
+                    type: string
+                user:
+                    type: object
+        Error:
+            required:
+                - message
+                - error
+            properties:
+                message:
+                    type: string
+                error:
+                    type: boolean

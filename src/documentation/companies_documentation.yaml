@@ -1,0 +1,70 @@
+openapi: '3.0.0'
+info:
+    version: 1.0.0
+    title: UsersCompany Company services
+    description: Api para el microservicios de usuarios
+    termsOfService: http://swagger.io/terms/
+    license:
+        name: Apache 2.0
+        url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+    - url: http://localhost:3000/companies/api/v1
+    - url: http://test.com/companies/api/v1
+    - url: http://production.com/companies/api/v1
+paths:
+    /fetchPointsOfSalesByCompany/{nit}:
+        get:
+            description: Consulta un usuario y los roles por empresa.
+            operationId: fetchUserByDocumentId
+            parameters:
+                - name: nit
+                  in: path
+                  description: nit of Company
+                  required: true
+                  schema:
+                      type: number
+            responses:
+                '200':
+                    description: login response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Response'
+                default:
+                    description: unexpected error
+                    content: 
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    
+components:
+    securitySchemes:
+            bearerAuth:
+                type: http
+                scheme: bearer
+                bearerFormat: JWT
+    schemas:
+        Login:
+            required:
+                - id_identification_type
+                - id_number
+            properties:
+                id_identification_type:
+                    type: number
+                id_number:
+                    type: string
+        Response:
+            properties:
+                message:
+                    type: string
+                user:
+                    type: object
+        Error:
+            required:
+                - message
+                - error
+            properties:
+                message:
+                    type: string
+                error:
+                    type: boolean
